@@ -1,0 +1,17 @@
+/* /Layout/MainLayout.razor.rz.scp.css */
+.page[b-v8q5m4zhkd] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-v8q5m4zhkd] {
+    flex: 1;
+}
+
+.sidebar[b-v8q5m4zhkd] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+/* /Pages/Auth/LoginPage.razor.rz.scp.css */
+/* /Pages/Auth/RegisterPage.razor.rz.scp.css */
+/* /Pages/Index.razor.rz.scp.css */
