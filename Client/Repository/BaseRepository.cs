@@ -29,8 +29,8 @@ public class BaseRepository(HttpClient client)
             return new TResult();
         }
     }
-    
-    public async Task<TResult> Post<TParam, TResult>(string url, TParam param) where TResult : new()
+
+    protected async Task<TResult> Post<TParam, TResult>(string url, TParam param) where TResult : new()
     {
         try
         {
@@ -50,7 +50,9 @@ public class BaseRepository(HttpClient client)
         }
     }
     
-    public async Task<TResult> Put<TParam, TResult>(string url, TParam param) where TResult : new()
+    protected async Task<T> Post<T>(string url, T param) where T : new() => await Post<T, T>(url, param);
+
+    protected async Task<TResult> Put<TParam, TResult>(string url, TParam param) where TResult : new()
     {
         try
         {
@@ -69,8 +71,8 @@ public class BaseRepository(HttpClient client)
             return new TResult();
         }
     }
-    
-    public async Task<TResult> Delete<TResult>(string url) where TResult : new()
+
+    protected async Task<TResult> Delete<TResult>(string url) where TResult : new()
     {
         try
         {
