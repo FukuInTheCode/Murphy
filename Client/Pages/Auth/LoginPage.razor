@@ -3,12 +3,13 @@
 
 <div class="flex-center login-container">
     <div class="login-header">
-        <span>@Text.Login</span>
+        <span></span>
     </div>
     <div class="login-body">
         <div class="login-inputs-container">
-            <input type="text" placeholder="@Text.Username"/>
-            <input type="text" placeholder="@Text.Password"/>
+            <input type="text" placeholder="@Text.Username" @bind="_username"/>
+            <input type="text" placeholder="@Text.Password" @bind="_pwd"/>
+            <div @onclick="SendRequest">@Text.Login</div>
         </div>
     </div>
     <div class="login-footer">
