@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MongoDB.Bson;
+using Shared.Enums;
 using Shared.Response;
 
 namespace Client.Repository;
@@ -20,15 +21,15 @@ public class BaseRepository(HttpClient client)
             var response = await client.GetAsync(url);
             var responseBody = await response.Content.ReadAsStringAsync();
             if (typeof(TResult) == typeof(string))
-                return new BaseResponse<TResult>((int)response.StatusCode, (TResult)(object)responseBody);
+                return new BaseResponse<TResult>((StatusCodes)response.StatusCode, (TResult)(object)responseBody);
             var result = JsonConvert.DeserializeObject<TResult>(responseBody);
-            return new BaseResponse<TResult>((int)response.StatusCode, result ?? new TResult());
+            return new BaseResponse<TResult>((StatusCodes)response.StatusCode, result ?? new TResult());
         }
         catch (HttpRequestException e)
         {
             Console.WriteLine("\nException Caught!");
             Console.WriteLine("Message :{0} ", e.Message);
-            return new BaseResponse<TResult>(500, new TResult());
+            return new BaseResponse<TResult>(StatusCodes.InternalServerError, new TResult());
         }
     }
 
@@ -41,13 +42,13 @@ public class BaseRepository(HttpClient client)
             var response = await client.PostAsync(url, content);
             var responseBody = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<TResult>(responseBody);
-            return new BaseResponse<TResult>((int)response.StatusCode, result ?? new TResult());
+            return new BaseResponse<TResult>((StatusCodes)response.StatusCode, result ?? new TResult());
         }
         catch (HttpRequestException e)
         {
             Console.WriteLine("\nException Caught!");
             Console.WriteLine("Message :{0} ", e.Message);
-            return new BaseResponse<TResult>(500, new TResult());
+            return new BaseResponse<TResult>(StatusCodes.InternalServerError, new TResult());
         }
     }
     
@@ -62,13 +63,13 @@ public class BaseRepository(HttpClient client)
             var response = await client.PutAsync(url, content);
             var responseBody = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<TResult>(responseBody);
-            return new BaseResponse<TResult>((int)response.StatusCode, result ?? new TResult());
+            return new BaseResponse<TResult>((StatusCodes)response.StatusCode, result ?? new TResult());
         }
         catch (HttpRequestException e)
         {
             Console.WriteLine("\nException Caught!");
             Console.WriteLine("Message :{0} ", e.Message);
-            return new BaseResponse<TResult>(500, new TResult());
+            return new BaseResponse<TResult>(StatusCodes.InternalServerError, new TResult());
         }
     }
 
@@ -79,13 +80,13 @@ public class BaseRepository(HttpClient client)
             var response = await client.DeleteAsync(url);
             var responseBody = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<TResult>(responseBody);
-            return new BaseResponse<TResult>((int)response.StatusCode, result ?? new TResult());
+            return new BaseResponse<TResult>((StatusCodes)response.StatusCode, result ?? new TResult());
         }
         catch (HttpRequestException e)
         {
             Console.WriteLine("\nException Caught!");
             Console.WriteLine("Message :{0} ", e.Message);
-            return new BaseResponse<TResult>(500, new TResult());
+            return new BaseResponse<TResult>(StatusCodes.InternalServerError, new TResult());
         }
     }
     
@@ -109,7 +110,7 @@ public class BaseRepository(HttpClient client)
 
     public T GetContent<T>(BaseResponse<T> response) => response.Content;
 
-    public int GetStatusCode<T>(BaseResponse<T> response) => response.StatusCode;
+    public StatusCodes GetStatusCode<T>(BaseResponse<T> response) => response.StatusCode;
 
 
     #endregion

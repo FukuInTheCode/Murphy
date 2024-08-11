@@ -1,7 +1,9 @@
+using Shared.Enums;
+
 namespace Shared.Response;
 
-public class BaseResponse<T>(int statusCode, T content)
+public class BaseResponse<T>(StatusCodes statusCode, T content)
 {
-    public int StatusCode { get; set; } = statusCode;
+    public StatusCodes StatusCode { get; set; } = statusCode;
     public T Content { get; set; } = content;
 }
