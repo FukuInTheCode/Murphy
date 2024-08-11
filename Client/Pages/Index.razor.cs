@@ -1,6 +1,9 @@
+using System;
+using System.Threading.Tasks;
 using Client.Repository.Interface;
 using Microsoft.AspNetCore.Components;
 using MongoDB.Bson;
+using Shared.Model.Users;
 
 namespace Client.Pages;
 
@@ -11,7 +14,7 @@ public partial class Index : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        var tmp = await UsersRepository.GetUsers();
+        var tmp = await UsersRepository.Register("admin4", "admin4");
         Console.WriteLine("Result: " +  tmp.ToJson());
         await base.OnInitializedAsync();
     }
