@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Server.DataAccess.Base;
+using Shared.Helpers.User;
 using Shared.Model.Users;
 
 namespace Server.DataAccess;
@@ -23,4 +24,7 @@ public class UserMongoAccess : MongoAccessLayer
     }
 
     public async Task CreateUser(UserModel user) => await GetCollection<UserModel>(Database, CollectionUsesInfos).InsertOneAsync(user);
+
+    public async Task<string> GetUserHashedPwdById(string id) =>
+        await GetCollection<UserModel>(Database, CollectionUsesInfos).Find(x => id == x.Id).Project(x => x.Password).FirstOrDefaultAsync();
 }

@@ -28,7 +28,12 @@ public class UserController : BaseController
     public async Task<IActionResult> Login([FromBody] UserModel user)
     {
         var targetUser = await _userMongoAccess.GetUserByAuthInfo(user.Username);
-        return targetUser == null ? BadRequest(user) : StatusCode(200, targetUser);
+        if (targetUser == null)
+            return BadRequest(user);
+        var userPwd = await _userMongoAccess.GetUserHashedPwdById(targetUser.Id);
+        if (!UserHelper.VerifyPassword(user.Password, userPwd))
+            return BadRequest(user);
+        return Ok(targetUser);
     }
     
     [HttpPost]
