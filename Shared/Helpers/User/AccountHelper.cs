@@ -1,6 +1,6 @@
 namespace Shared.Helpers.User;
 
-public static class UserHelper
+public static class AccountHelper
 {
     public static string EncryptPassword(string password) => BCrypt.Net.BCrypt.HashPassword(password);
 

@@ -12,7 +12,7 @@ public partial class LoginPage : ComponentBase
 {
     #region Injects
     
-    [Inject] private IUsersRepository UsersRepository { get; set; }
+    [Inject] private IAccountRepository AccountRepository { get; set; }
     [Inject] private AppData AppData { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
 
@@ -26,16 +26,16 @@ public partial class LoginPage : ComponentBase
     private string _pwd = string.Empty;
     protected override Task OnInitializedAsync()
     {
-        if (AppData?.User?.Id != null)
+        if (AppData.AccountInfo?.Id != null)
             NavigationManager?.NavigateTo("/");
         return base.OnInitializedAsync();
     }
 
     private async void SendRequest()
     {
-        var response = await UsersRepository.Login(_username, _pwd);
+        var response = await AccountRepository.Login(_username, _pwd);
         if (response.StatusCode != StatusCodes.Ok) return;
-        AppData.User = response.Content;
+        AppData.AccountInfo = response.Content;
         NavigationManager.NavigateTo("/");
     }
 }

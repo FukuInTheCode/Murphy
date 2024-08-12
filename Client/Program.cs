@@ -28,7 +28,7 @@ public class Program
 
         #region Repository
 
-        builder.Services.AddScoped<IUsersRepository, UserRepository>();
+        builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
         #endregion
         
