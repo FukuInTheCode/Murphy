@@ -8,4 +8,6 @@ public class AccountInfoModel : BaseModel
     public string Username { get; set; } = "";
 
     public string Password { get; set; } = "";
+
+    public string JwtToken { get; set; } = "";
 }
