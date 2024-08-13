@@ -1,13 +1,18 @@
 @page "/register"
+@using Shared.Ressources
 
 <div class="flex-center register-container">
     <div class="register-header">
-
+        <span></span>
     </div>
     <div class="register-body">
-
+        <div class="register-inputs-container">
+            <input type="text" placeholder="@Text.Username" @bind="_username"/>
+            <input type="text" placeholder="@Text.Password" @bind="_pwd"/>
+            <div @onclick="SendRequest">@Text.CreateAccount</div>
+        </div>
     </div>
-    <div class="register-footer">
+    <div class="login-footer">
 
     </div>
 </div>
