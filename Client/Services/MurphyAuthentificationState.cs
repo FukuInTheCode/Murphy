@@ -20,6 +20,7 @@ public class MurphyAuthenticationStateProvider(IJSRuntime jsRuntime) : Authentic
 
     public void MarkUserAsAuthenticated(string token)
     {
+        jsRuntime.InvokeAsync<string>("localStorage.setItem", "authToken", token);
         var identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt");
         var user = new ClaimsPrincipal(identity);
 
