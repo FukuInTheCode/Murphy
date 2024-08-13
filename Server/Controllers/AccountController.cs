@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -37,6 +38,7 @@ public class AccountController(IConfiguration configuration) : BaseController
         var userPwd = await _accountMongoAccess.GetUserHashedPwdById(targetUser.Id);
         if (!AccountHelper.VerifyPassword(accountInfo.Password, userPwd))
             return BadRequest(accountInfo);
+        targetUser.JwtToken = GenerateJwt(targetUser);
         return Ok(targetUser);
     }
     
@@ -49,6 +51,7 @@ public class AccountController(IConfiguration configuration) : BaseController
         accountInfo.Password = AccountHelper.EncryptPassword(accountInfo.Password);
         await _accountMongoAccess.CreateUser(accountInfo);
         accountInfo.Password = string.Empty;
+        accountInfo.JwtToken = GenerateJwt(accountInfo);
         return Created(accountInfo);
     }
 
@@ -60,9 +63,8 @@ public class AccountController(IConfiguration configuration) : BaseController
     {
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, accountInfo.Username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        new Claim(ClaimTypes.Role, "Admin")
+            new Claim(ClaimTypes.Name, accountInfo.Username),
+            new Claim(ClaimTypes.Role, "Admin")
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!));
