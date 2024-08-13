@@ -9,5 +9,6 @@ public class AccountInfoModel : BaseModel
 
     public string Password { get; set; } = "";
 
+    [BsonIgnore]
     public string JwtToken { get; set; } = "";
 }
