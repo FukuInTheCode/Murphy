@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Client.Repository;
 using Client.Repository.Interface;
 using Client.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Client;
 
@@ -20,9 +21,8 @@ public class Program
 
         builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5001/") });
         
-        /*
-        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-        */
+        builder.Services.AddScoped<AuthenticationStateProvider, MurphyAuthenticationStateProvider>();
+
 
         builder.Services.AddSingleton<AppData>();
 
