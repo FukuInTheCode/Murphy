@@ -1,7 +1,9 @@
 using System.Net;
+using System.Net.Http.Headers;
 using Client.Repository.Interface;
 using Client.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Shared.Enums;
 using Shared.Model.Users;
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
@@ -13,8 +15,12 @@ public partial class LoginPage : ComponentBase
     #region Injects
     
     [Inject] private IAccountRepository AccountRepository { get; set; }
+    
+    [Inject] private HttpClient HttpClient { get; set; }
     [Inject] private AppData AppData { get; set; }
     [Inject] private NavigationManager NavigationManager { get; set; }
+
+    [Inject] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
     #endregion
 
@@ -36,6 +42,9 @@ public partial class LoginPage : ComponentBase
         var response = await AccountRepository.Login(_username, _pwd);
         if (response.StatusCode != StatusCodes.Ok) return;
         AppData.AccountInfo = response.Content;
+        ((MurphyAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsAuthenticated(AppData.AccountInfo.JwtToken);
+        HttpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", AppData.AccountInfo.JwtToken);
         NavigationManager.NavigateTo("/");
     }
 }
