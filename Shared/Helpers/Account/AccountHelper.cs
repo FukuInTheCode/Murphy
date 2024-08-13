@@ -1,4 +1,4 @@
-namespace Shared.Helpers.User;
+namespace Shared.Helpers.Account;
 
 public static class AccountHelper
 {

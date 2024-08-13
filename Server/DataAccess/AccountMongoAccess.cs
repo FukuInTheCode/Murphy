@@ -2,16 +2,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using Server.DataAccess.Base;
-using Shared.Helpers.User;
 using Shared.Model.Users;
 
 namespace Server.DataAccess;
 
 public class AccountMongoAccess : MongoAccessLayer
 {
-    private const string Database = "Users";
+    private const string Database = "Account";
 
-    private const string CollectionUsesInfos = "UserInfos";
+    private const string CollectionUsesInfos = "AccountInfo";
 
     public async Task<List<AccountInfoModel>> GetUsers() =>
         await GetCollection<AccountInfoModel>(Database, CollectionUsesInfos).Find(x => true).ToListAsync();
