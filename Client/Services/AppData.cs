@@ -4,5 +4,5 @@ namespace Client.Services;
 
 public class AppData
 {
-    public AccountInfoModel AccountInfo { get; set; } = null!;
+    public AccountInfoModel AccountInfo { get; set; } = new ();
 }
