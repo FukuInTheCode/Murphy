@@ -33,4 +33,22 @@
     <data name="Password" xml:space="preserve">
         <value>Mot de passe</value>
     </data>
+    <data name="Visitor" xml:space="preserve">
+        <value>Visiteur</value>
+    </data>
+    <data name="Administrator" xml:space="preserve">
+        <value>Administrateur</value>
+    </data>
+    <data name="Founder" xml:space="preserve">
+        <value>Fondateur</value>
+    </data>
+    <data name="Moderator" xml:space="preserve">
+        <value>Modérateur</value>
+    </data>
+    <data name="LocalModerator" xml:space="preserve">
+        <value>Modérateur local</value>
+    </data>
+    <data name="LocalAdministrator" xml:space="preserve">
+        <value>Administrateur local</value>
+    </data>
 </root>

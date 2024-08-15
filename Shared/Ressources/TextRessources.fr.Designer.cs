@@ -74,5 +74,41 @@ namespace Shared.Ressources {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
         }
+        
+        internal static string Visitor {
+            get {
+                return ResourceManager.GetString("Visitor", resourceCulture);
+            }
+        }
+        
+        internal static string Administrator {
+            get {
+                return ResourceManager.GetString("Administrator", resourceCulture);
+            }
+        }
+        
+        internal static string Founder {
+            get {
+                return ResourceManager.GetString("Founder", resourceCulture);
+            }
+        }
+        
+        internal static string Moderator {
+            get {
+                return ResourceManager.GetString("Moderator", resourceCulture);
+            }
+        }
+        
+        internal static string LocalModerator {
+            get {
+                return ResourceManager.GetString("LocalModerator", resourceCulture);
+            }
+        }
+        
+        internal static string LocalAdministrator {
+            get {
+                return ResourceManager.GetString("LocalAdministrator", resourceCulture);
+            }
+        }
     }
 }
