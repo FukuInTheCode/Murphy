@@ -53,4 +53,6 @@ public class MurphyAuthenticationStateProvider(IJSRuntime jsRuntime) : Authentic
         }
         return Convert.FromBase64String(base64);
     }
+    
+    public async Task<string> GetJwtToken() => await jsRuntime.InvokeAsync<string>("localStorage.getItem", "authToken");
 }
