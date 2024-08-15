@@ -51,4 +51,10 @@
     <data name="LocalAdministrator" xml:space="preserve">
         <value>Administrateur local</value>
     </data>
+    <data name="Authorizing" xml:space="preserve">
+        <value>autorisation en cours</value>
+    </data>
+    <data name="NotAuthorized" xml:space="preserve">
+        <value>Non autorisé</value>
+    </data>
 </root>

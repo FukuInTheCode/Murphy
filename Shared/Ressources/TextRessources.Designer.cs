@@ -21,7 +21,7 @@ namespace Shared.Ressources {
         private static System.Globalization.CultureInfo resourceCulture;
         
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public TextRessources() {
+        internal TextRessources() {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -108,6 +108,18 @@ namespace Shared.Ressources {
         public static string LocalAdministrator {
             get {
                 return ResourceManager.GetString("LocalAdministrator", resourceCulture);
+            }
+        }
+        
+        public static string Authorizing {
+            get {
+                return ResourceManager.GetString("Authorizing", resourceCulture);
+            }
+        }
+        
+        public static string NotAuthorized {
+            get {
+                return ResourceManager.GetString("NotAuthorized", resourceCulture);
             }
         }
     }

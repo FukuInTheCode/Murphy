@@ -14,7 +14,7 @@ namespace Shared.Ressources {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class TextRessources_fr {
+    public class TextRessources_fr {
         
         private static System.Resources.ResourceManager resourceMan;
         
@@ -25,7 +25,7 @@ namespace Shared.Ressources {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Resources.ResourceManager ResourceManager {
+        public static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
                     System.Resources.ResourceManager temp = new System.Resources.ResourceManager("Shared.Ressources.TextRessources_fr", typeof(TextRessources_fr).Assembly);
@@ -36,7 +36,7 @@ namespace Shared.Ressources {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Globalization.CultureInfo Culture {
+        public static System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -45,69 +45,81 @@ namespace Shared.Ressources {
             }
         }
         
-        internal static string Murphy {
+        public static string Murphy {
             get {
                 return ResourceManager.GetString("Murphy", resourceCulture);
             }
         }
         
-        internal static string Login {
+        public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
-        internal static string CreateAccount {
+        public static string CreateAccount {
             get {
                 return ResourceManager.GetString("CreateAccount", resourceCulture);
             }
         }
         
-        internal static string Username {
+        public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
             }
         }
         
-        internal static string Password {
+        public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
-        internal static string Visitor {
+        public static string Visitor {
             get {
                 return ResourceManager.GetString("Visitor", resourceCulture);
             }
         }
         
-        internal static string Administrator {
+        public static string Administrator {
             get {
                 return ResourceManager.GetString("Administrator", resourceCulture);
             }
         }
         
-        internal static string Founder {
+        public static string Founder {
             get {
                 return ResourceManager.GetString("Founder", resourceCulture);
             }
         }
         
-        internal static string Moderator {
+        public static string Moderator {
             get {
                 return ResourceManager.GetString("Moderator", resourceCulture);
             }
         }
         
-        internal static string LocalModerator {
+        public static string LocalModerator {
             get {
                 return ResourceManager.GetString("LocalModerator", resourceCulture);
             }
         }
         
-        internal static string LocalAdministrator {
+        public static string LocalAdministrator {
             get {
                 return ResourceManager.GetString("LocalAdministrator", resourceCulture);
+            }
+        }
+        
+        public static string Authorizing {
+            get {
+                return ResourceManager.GetString("Authorizing", resourceCulture);
+            }
+        }
+        
+        public static string NotAuthorized {
+            get {
+                return ResourceManager.GetString("NotAuthorized", resourceCulture);
             }
         }
     }
