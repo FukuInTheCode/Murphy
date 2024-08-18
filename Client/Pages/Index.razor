@@ -12,7 +12,12 @@
             <div class="applications-body">
                 @foreach (var app in EnumHelper.GetValuesOfType<ApplicationEnum>())
                 {
-                    <div class="background-container application-container" id="@app.GetDisplayName()" @onclick="_ => AccessApp(app.GetAttributeOfType<UrlAttribute>()?.Primary)">
+                    var primaryColor = app.GetAttributeOfType<ColorAttribute>()?.Primary;
+                    var secondaryColor = app.GetAttributeOfType<ColorAttribute>()?.Secondary;
+                    
+                    <div class="background-container application-container" id="@app.GetDisplayName()" 
+                         style="background: linear-gradient(135deg, @primaryColor, @secondaryColor)" 
+                         @onclick="_ => AccessApp(app.GetAttributeOfType<UrlAttribute>()?.Primary)">
                         <div class="application-header"></div>
                         <div class="application-body"></div>
                         <div class="application-footer"></div>
