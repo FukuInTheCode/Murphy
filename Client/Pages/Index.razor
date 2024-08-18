@@ -1,4 +1,29 @@
 @page "/"
-@using Shared.Ressources
+@using Shared.Attributes
+@using Shared.Enums.Applications
+@using Shared.Extensions
+@using Shared.Helpers
 
-<div>@Text.Murphy</div>
+<div class="container">
+    <div class="header"></div>
+    <div class="body">
+        <div class="applications-container">
+            <div class="applications-header"></div>
+            <div class="applications-body">
+                @foreach (var app in EnumHelper.GetValuesOfType<ApplicationEnum>())
+                {
+                    <div class="background-container application-container" id="@app.GetDisplayName()" @onclick="_ => AccessApp(app.GetAttributeOfType<UrlAttribute>()?.Primary)">
+                        <div class="application-header"></div>
+                        <div class="application-body"></div>
+                        <div class="application-footer"></div>
+                        <div class="background application-background">
+                            <i class="fas @(app.GetAttributeOfType<IconAttribute>()?.Primary)"></i>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="applications-footer"></div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</div>
