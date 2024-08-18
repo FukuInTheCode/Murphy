@@ -1,4 +1,5 @@
 using MongoDB.Bson.Serialization.Attributes;
+using Shared.Constantes.Account;
 
 namespace Shared.Model.Users;
 
@@ -9,6 +10,13 @@ public class AccountInfoModel : BaseModel
 
     public string Password { get; set; } = "";
 
+    public string Role { get; set; } = RoleConstantes.VisitorRole; 
+    
+    #region Ignored
+    
     [BsonIgnore]
     public string JwtToken { get; set; } = "";
+    
+
+    #endregion
 }
