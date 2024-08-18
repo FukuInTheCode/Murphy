@@ -20,7 +20,7 @@ public enum ApplicationEnum
     OrganizeApplication,
     [Display(Name = "Refereeing", ResourceType = typeof(TextRessources))]
     [Color(Primary = ColorConstantes.WageningenGreen)]
-    [Icon(Primary = "fa-stopwatch-20")]
+    [Icon(Primary = "fa-stopwatch")]
     [Attributes.Url(Primary = "/referee")]
     RefereeingApplication,
     [Display(Name = "Stats", ResourceType = typeof(TextRessources))]
