@@ -6,8 +6,8 @@
 @inject HttpClient HttpClient
 @inject AppData AppData
 
-<div class="page">
-    <main>
+<div class="page fill">
+    <main class="fill">
             @Body
     </main>
 </div>
@@ -17,7 +17,6 @@
     {
         var token = await ((MurphyAuthenticationStateProvider)AuthenticationStateProvider).GetJwtToken();
         HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        Console.WriteLine(token);
         AppData.AccountInfo.JwtToken = token;
         await base.OnInitializedAsync();
     }
