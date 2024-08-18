@@ -57,4 +57,19 @@
     <data name="NotAuthorized" xml:space="preserve">
         <value>Non autorisé</value>
     </data>
+    <data name="View" xml:space="preserve">
+        <value>Voir</value>
+    </data>
+    <data name="Organize" xml:space="preserve">
+        <value>Organiser</value>
+    </data>
+    <data name="Stats" xml:space="preserve">
+        <value>Statistiques</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Paramètres</value>
+    </data>
+    <data name="Refereeing" xml:space="preserve">
+        <value>Arbitrage</value>
+    </data>
 </root>

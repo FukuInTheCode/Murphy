@@ -122,5 +122,35 @@ namespace Shared.Ressources {
                 return ResourceManager.GetString("NotAuthorized", resourceCulture);
             }
         }
+        
+        public static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
+        
+        public static string Organize {
+            get {
+                return ResourceManager.GetString("Organize", resourceCulture);
+            }
+        }
+        
+        public static string Stats {
+            get {
+                return ResourceManager.GetString("Stats", resourceCulture);
+            }
+        }
+        
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        public static string Refereeing {
+            get {
+                return ResourceManager.GetString("Refereeing", resourceCulture);
+            }
+        }
     }
 }
