@@ -54,6 +54,13 @@ public class Startup
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Program.Configuration["Jwt:Key"]!))
                 };
             });
+
+        #region Policy
+        
+        // services.AddAuthorizationBuilder()
+        //     .AddPolicy("Connected", policy => policy.RequireRole("Visitor"));
+
+        #endregion
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
