@@ -64,7 +64,7 @@ public class AccountController(IConfiguration configuration) : BaseController
         var claims = new[]
         {
             new Claim(ClaimTypes.Name, accountInfo.Username),
-            new Claim(ClaimTypes.Role, "Admin")
+            new Claim(ClaimTypes.Role, accountInfo.Role)
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!));
