@@ -14,4 +14,6 @@ public static class ColorConstantes
 
     public const string Black = "#000000";
 
+    public const string VintageNavy = "#2A344D";
+
 }
