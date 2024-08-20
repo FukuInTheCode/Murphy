@@ -1,0 +1,50 @@
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.applications-container {
+    height: 100%;
+    width: 100%;
+}
+
+.body {
+    height: 100%;
+    width: 100%;
+}
+
+.applications-body {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    height: 100%;
+    column-gap: 1em;
+}
+
+.application-container {
+    border-radius: 5px;
+    cursor: pointer;
+    width: 9em;
+    height: 9em;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.1s ease-in-out;
+}
+
+.application-background {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: xxx-large;
+    margin-top: 20px;
+}
+
+.application-container:hover {
+    transform: scale(1.1);
+}
