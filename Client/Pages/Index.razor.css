@@ -26,13 +26,15 @@
 }
 
 .application-container {
-    border-radius: 5px;
+    border-radius: 12px;
     cursor: pointer;
-    width: 9em;
-    height: 9em;
+    width: 4em;
+    height: 4em;
     display: flex;
     flex-direction: column;
     transition: transform 0.1s ease-in-out;
+    padding-right: 22px;
+    padding-bottom: 14px;
 }
 
 .application-background {

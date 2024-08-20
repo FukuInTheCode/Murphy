@@ -24,4 +24,6 @@ public static class ColorConstantes
 
     public const string VintageNavy = "#2A344D";
 
+    public const string CetaceanBlue = "#01013E";
+
 }

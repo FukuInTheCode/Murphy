@@ -1,13 +1,14 @@
 ﻿@using System.Net.Http.Headers
 @using Client.Services
 @using Microsoft.AspNetCore.Components.Authorization
+@using Shared.Constantes
 @inherits LayoutComponentBase
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject HttpClient HttpClient
 @inject AppData AppData
 
 <div class="page fill" style="width: 100%; height: 100%">
-    <main class="fill" style="width: 100%; height: 100%">
+    <main class="fill" style="width: 100%; height: 100%; background: @ColorConstantes.CetaceanBlue">
             @Body
     </main>
 </div>
