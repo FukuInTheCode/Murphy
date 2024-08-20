@@ -9,22 +9,22 @@ namespace Shared.Enums.Applications;
 public enum ApplicationEnum
 {
     [Display(Name = "View", ResourceType = typeof(TextRessources))]
-    [Color(Primary = ColorConstantes.Sapphire)]
+    [Color(Primary = ColorConstantes.Sapphire, Secondary = ColorConstantes.CelticBlue)]
     [Icon(Primary = "fa-eye")]
     [Attributes.Url(Primary = "/view")]
     ViewApplication,
     [Display(Name = "Organize", ResourceType = typeof(TextRessources))]
-    [Color(Primary = ColorConstantes.ChineseRed)]
+    [Color(Primary = ColorConstantes.ChineseRed, Secondary = ColorConstantes.CedarChest)]
     [Icon(Primary = "fa-table-columns")]
     [Attributes.Url(Primary = "/organize")]
     OrganizeApplication,
     [Display(Name = "Refereeing", ResourceType = typeof(TextRessources))]
-    [Color(Primary = ColorConstantes.WageningenGreen)]
+    [Color(Primary = ColorConstantes.WageningenGreen, Secondary = ColorConstantes.LimeGreen)]
     [Icon(Primary = "fa-stopwatch")]
     [Attributes.Url(Primary = "/referee")]
     RefereeingApplication,
     [Display(Name = "Stats", ResourceType = typeof(TextRessources))]
-    [Color(Primary = ColorConstantes.Turquoise)]
+    [Color(Primary = ColorConstantes.Turquoise, Secondary = ColorConstantes.Verdigris)]
     [Icon(Primary = "fa-chart-line")]
     [Attributes.Url(Primary = "/stats")]
     StatsApplications,
